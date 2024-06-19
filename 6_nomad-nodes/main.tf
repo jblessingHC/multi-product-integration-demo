@@ -88,19 +88,19 @@ data "terraform_remote_state" "nomad_cluster" {
   }
 }
 
-data "hcp_packer_image" "ubuntu_lunar_hashi_x86" {
+data "hcp_packer_artifact" "ubuntu_lunar_hashi_x86" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.amd"
-  channel        = "latest"
-  cloud_provider = "aws"
+  channel_name       = "latest"
+  platform = "aws"
   region         = var.region
 }
 
-data "hcp_packer_image" "ubuntu_lunar_hashi_arm" {
+data "hcp_packer_artifiact" "ubuntu_lunar_hashi_arm" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.arm"
-  channel        = "latest"
-  cloud_provider = "aws"
+  channel_name        = "latest"
+  platformm = "aws"
   region         = var.region
 }
 
@@ -230,7 +230,7 @@ resource "aws_autoscaling_group" "nomad_client_x86_asg" {
 
 resource "aws_launch_template" "nomad_client_arm_launch_template" {
   name_prefix   = "lt-"
-  image_id      = data.hcp_packer_image.ubuntu_lunar_hashi_arm.cloud_image_id
+  image_id      = data.hcp_packer_artifact.ubuntu_lunar_hashi_arm.external.identifier
   instance_type = "t4g.medium"
 
   block_device_mappings {
