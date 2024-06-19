@@ -7,17 +7,17 @@ terraform {
 
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.8.0"
+      version = "~> 5.54.1"
     }
 
     vault = {
       source = "hashicorp/vault"
-      version = "~> 3.18.0"
+      version = "~> 4.3.0"
     }
 
     hcp = {
       source  = "hashicorp/hcp"
-      version = "~> 0.66.0"
+      version = "~> 0.92.0"
     }
   }
 }
