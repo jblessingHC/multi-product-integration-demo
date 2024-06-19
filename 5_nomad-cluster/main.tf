@@ -201,19 +201,19 @@ resource "aws_alb_listener" "nomad" {
   }
 }
 
-data "hcp_packer_image" "ubuntu_lunar_hashi_amd" {
+data "hcp_packer_artifact" "ubuntu_lunar_hashi_amd" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.amd"
-  channel        = "latest"
-  cloud_provider = "aws"
+  channel_name        = "latest"
+  platform = "aws"
   region         = var.region
 }
 
-data "hcp_packer_image" "ubuntu_lunar_hashi_arm" {
+data "hcp_packer_artifact" "ubuntu_lunar_hashi_arm" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.arm"
-  channel        = "latest"
-  cloud_provider = "aws"
+  channel_name       = "latest"
+  platform = "aws"
   region         = var.region
 }
 
