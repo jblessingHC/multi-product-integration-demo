@@ -96,7 +96,7 @@ data "hcp_packer_artifact" "ubuntu_lunar_hashi_x86" {
   region         = var.region
 }
 
-data "hcp_packer_artifiact" "ubuntu_lunar_hashi_arm" {
+data "hcp_packer_artifact" "ubuntu_lunar_hashi_arm" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.arm"
   channel_name        = "latest"
@@ -153,7 +153,7 @@ resource "aws_iam_instance_profile" "instance_profile" {
 
 resource "aws_launch_template" "nomad_client_x86_launch_template" {
   name_prefix   = "lt-"
-  image_id      = data.hcp_packer_image.ubuntu_lunar_hashi_x86.cloud_image_id
+  image_id      = data.hcp_packer_artifact.ubuntu_lunar_hashi_x86.external_identifier
   instance_type = "t3a.medium"
 
   block_device_mappings {
@@ -230,7 +230,7 @@ resource "aws_autoscaling_group" "nomad_client_x86_asg" {
 
 resource "aws_launch_template" "nomad_client_arm_launch_template" {
   name_prefix   = "lt-"
-  image_id      = data.hcp_packer_artifact.ubuntu_lunar_hashi_arm.external.identifier
+  image_id      = data.hcp_packer_artifact.ubuntu_lunar_hashi_arm.external_identifier
   instance_type = "t4g.medium"
 
   block_device_mappings {
