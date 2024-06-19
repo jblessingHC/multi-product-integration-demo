@@ -2,16 +2,16 @@ terraform {
   required_providers {
     boundary = {
       source = "hashicorp/boundary"
-      version = "~> 1.1.9"
+      version = "~> 1.1.15"
     }
 
     vault = {
       source = "hashicorp/vault"
-      version = "~> 3.18.0"
+      version = "~> 4.3.0"
     }
 
     tfe = {
-        version = "~> 0.49.0"
+        version = "~> 0.56.0"
     }
   }
 }
