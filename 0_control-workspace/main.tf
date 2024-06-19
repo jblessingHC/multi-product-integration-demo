@@ -21,7 +21,7 @@ resource "hcp_packer_run_task" "registry" {
 resource "tfe_organization_run_task" "hcp_packer" {
   organization = var.tfc_organization
   url          = hcp_packer_run_task.registry.endpoint_url
-  name         = "packer"
+  name         = "${var.stack_id}-packer"
   enabled      = true
   hmac_key     = hcp_packer_run_task.registry.hmac_key
 }
