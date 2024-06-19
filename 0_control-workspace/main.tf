@@ -15,7 +15,7 @@ provider "tfe" {
 }
 
 resource "hcp_packer_run_task" "registry" {
-  regenerate_hmac = true
+  regenerate_hmac = false
 }
 
 resource "tfe_organization_run_task" "hcp_packer" {
