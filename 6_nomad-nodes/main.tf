@@ -91,16 +91,16 @@ data "terraform_remote_state" "nomad_cluster" {
 data "hcp_packer_artifact" "ubuntu_lunar_hashi_x86" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.amd"
-  channel_name       = "latest"
-  platform = "aws"
+  channel_name   = "latest"
+  platform       = "aws"
   region         = var.region
 }
 
 data "hcp_packer_artifact" "ubuntu_lunar_hashi_arm" {
   bucket_name    = "ubuntu-mantic-hashi"
   component_type = "amazon-ebs.arm"
-  channel_name        = "latest"
-  platformm = "aws"
+  channel_name   = "latest"
+  platform      = "aws"
   region         = var.region
 }
 
